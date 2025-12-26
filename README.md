@@ -19,6 +19,23 @@ CUSUM candlesticks are created by tracking cumulative price movements:
 
 This approach creates candlesticks based on significant price movements rather than time, potentially providing better insights into market dynamics.
 
+## Example Results
+
+For a typical cryptocurrency dataset:
+- **Original candles**: 50,000+ time-based candles
+- **CUSUM candles**: 5,000-15,000 movement-based candles
+- **Compression ratio**: 3-10x reduction in data points while preserving significant price movements
+
+### Sample Output Charts
+
+**Price Comparison Chart**
+![CUSUM Price Comparison](cusum_comparison.png)
+*Comparison between original time-based price data (top) and CUSUM-based price data (bottom)*
+
+**Candlestick Comparison Chart**
+![CUSUM Candlestick Comparison](cusum_candlestick_comparison.png)
+*Detailed candlestick comparison showing the last 1000 regular candles vs corresponding CUSUM candles*
+
 ## Installation
 
 1. Clone this repository:
@@ -107,5 +124,6 @@ Feel free to submit issues, feature requests, or pull requests to improve this t
 This project is open source. Please check the license file for details.
 
 ## Disclaimer
+
 
 This tool is for educational and research purposes. Always validate results and use appropriate risk management when applying to trading strategies.
