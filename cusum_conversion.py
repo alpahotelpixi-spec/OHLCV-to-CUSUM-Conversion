@@ -230,6 +230,21 @@ def main():
     # 4. CANDLESTICK COMPARISON
     # ======================
     create_candlestick_comparison(df, cusum_df, 1000)
+    
+    # ======================
+    # 5. SAVE CUSUM TO CSV
+    # ======================
+    # Add timestamps for CUSUM candles
+    cusum_df_with_time = cusum_df.copy()
+    cusum_df_with_time['open_time'] = df.loc[cusum_df['start_idx'], 'open_time'].values
+    cusum_df_with_time['close_time'] = df.loc[cusum_df['end_idx'], 'open_time'].values
+    
+    # Reorder columns for convenience
+    cusum_output = cusum_df_with_time[['open_time', 'close_time', 'open', 'high', 'low', 'close', 'start_idx', 'end_idx']]
+    
+    # Save to CSV
+    cusum_output.to_csv('cusum.csv', index=False)
+    print(f"CUSUM candles saved to cusum.csv ({len(cusum_output)} candles)")
 
 if __name__ == "__main__":
     main()
